@@ -1,0 +1,60 @@
+
+<div style="margin-left: 20%; margin-right: 20%;">
+  <form class="content" (submit)="registra()">
+      <div class="submit-form">
+          <div class="row mt-5 mb-2">
+              <div class="col-lg-12 mb-2 text-center">
+                  <h1>Registro de Disponibilidad</h1>
+              </div>
+          </div>
+
+          <div class="row mb-4">
+              <div class="col-lg-4">
+                  <label for="hInicio">Hora de Inicio</label>
+                  <input type="text" class="form-control" name="hInicio" id="hInicio" [(ngModel)]="disponibilidad.horaInicio"
+                  placeholder="00:00:00"/>
+              </div>
+
+              <div class="col-lg-4">
+                  <label for="hFin">Hora de Fin</label>
+                  <input type="text" class="form-control" name="hFin" id="hFin" [(ngModel)]="disponibilidad.horaFin"
+                  placeholder="00:00:00"/>
+              </div>
+
+              <div class="col-lg-4">
+                  <label for="dia">Dia de la Semana</label>
+                  <input type="text" class="form-control" name="dia" id="dia" [(ngModel)]="disponibilidad.dia"
+                  style="text-transform:uppercase;"/>
+              </div>
+          </div>
+
+          <div class="row mb-4">
+            <div class="col-lg-6">
+              <label for="usuario">Usuario</label>
+              <select id="usuario" name="usuario" class="form-control" [(ngModel)]="disponibilidad.usuario!.idUsuario"
+              aria-label=".form-select-lg example">
+                <option value="-1">Seleccione</option>
+                <option *ngFor="let usuario of listaUsuarios" value="{{usuario.idUsuario}}">{{usuario.nombres}}</option>
+              </select>
+            </div>
+            <div class="col-lg-6">
+              <label for="ciclo">Ciclo</label>
+              <select id="ciclo" name="ciclo" class="form-control" [(ngModel)]="disponibilidad.ciclo!.idCiclo"
+              aria-label=".form-select-lg example">
+                <option value="-1">Seleccione</option>
+                <option value="1">20201</option>
+                <option value="2">20202</option>
+                <!--<option *ngFor="let ciclo of listaCiclos" value="{{ciclo.idCiclo}}">{{ciclo.nombre}}></option>-->
+
+              </select>
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-lg-12">
+                <button class="btn btn-success" style="width: 100%;">Enviar</button>
+              </div>
+          </div>
+      </div>
+  </form>
+</div>
